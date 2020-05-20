@@ -225,7 +225,7 @@
               </div>
 
               <div class=" col-md-8 col-lg-7 col-xl-6 offset-lg-1 offset-xl-1 order-2" data-aos="fade-up"  data-aos-duration="1500" data-aos-once="true">
-                <h2 class="title h2">Present some awesome features.</h2>
+                <h2 class="title h2">Ten todo bajo control.</h2>
 
                 <div class="content-widgets">
                   <div class="content-widget-wrapper">
@@ -235,10 +235,9 @@
                       </div>
 
                       <div class="content">
-                        <h6 class="widget-title">Super Organized</h6>
+                        <h6 class="widget-title">Gestiona tus gastos</h6>
                         <p>
-                          Create custom landing pages with Berlin that convert
-                          more visitors than any website.
+                          Podrás saber en todo momento cuanto llevas gastado y comparar con meses anteriores.
                         </p>
                       </div>
                     </div>
@@ -249,10 +248,9 @@
                       </div>
 
                       <div class="content">
-                        <h6 class="widget-title">Super Organized</h6>
+                        <h6 class="widget-title">Y tus ingresos</h6>
                         <p>
-                          Create custom landing pages with Berlin that convert
-                          more visitors than any website.
+                          Desde tu nómina hasta ese euro que te encuentras tirado en casa. ¡Todo vale!
                         </p>
                       </div>
                     </div>
