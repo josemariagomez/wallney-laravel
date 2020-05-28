@@ -44,7 +44,7 @@
                   </li>
                   <li class="menu-item "><a href="#features">Grupos</a></li>
 
-                  <li class="menu-item"><a href="#"> Support</a></li>
+                  <li class="menu-item"><a href="{{ route('login') }}"> {{ __('web.home_access') }}</a></li>
                 </ul>
                 <div class="header-btns justify-content-end">
                     <a href="#descargar" class="btn btn--primary btn--medium">Descargar</a>
