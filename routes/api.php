@@ -14,9 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/login', 'Api\AuthController@login');
+Route::post('login', 'Api\AuthController@login');
+Route::post('register', 'Api\AuthController@register');
+Route::post('/password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail');
+
 Route::middleware(['auth:sanctum'])->group(function () { 
-     Route::get('/users', function ()
+     Route::get('users', function ()
      {
          return auth()->user();
      });
