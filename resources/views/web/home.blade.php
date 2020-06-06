@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Wallney - Smart Saving</title>
+    <title>{{ __('web.home_seo_title') }}</title>
     <!-- Plugins CSS -->
     <link
       rel="stylesheet"
@@ -42,12 +42,12 @@
                   <li class="menu-item has-dropdown">
                     <a href="#features">App</a>
                   </li>
-                  <li class="menu-item "><a href="#features">Grupos</a></li>
+                  <li class="menu-item "><a href="#features">{{ __('web.groups') }}</a></li>
 
                   <li class="menu-item"><a href="{{ route('login') }}"> {{ __('web.home_access') }}</a></li>
                 </ul>
                 <div class="header-btns justify-content-end">
-                    <a href="#descargar" class="btn btn--primary btn--medium">Descargar</a>
+                    <a href="#descargar" class="btn btn--primary btn--medium">{{ __('web.download') }}</a>
                 </div>
             </div>
 							
@@ -92,74 +92,20 @@
             <!-- mobile menu navigation start -->
             <nav class="off-canvas-nav">
               <ul class="mobile-menu">
-                <li class="menu-item-has-children">
-                  <a href="#">Demos <i class="icon icon-minimal-down"></i></a>
-                  <ul class="sub-menu">
-                    <li class="single-item">
-                      <a href="{{ url('web-assets/s01/index.html') }}">
-                      <h3>Mobile Application</h3> 
-                      <p>Best for Mobile App Presentation</p>
-                      </a>
-                  </li>
-                  <li class="single-item">
-                      <a href="{{ url('web-assets/s02/index.html') }}">
-                          <h3>Web Application</h3>
-                          <p>Best for Web Application</p>
-                      </a> 
-                  </li>
-                  <li class="single-item">
-                      <a href="{{ url('web-assets/s03/index.html') }}">
-                      <h3>SaaS Application</h3>
-                      <p>Best for SaaS Application</p>
-                  </a> 
-                  </li>
-                  <li class="single-item">
-                      <a href="{{ url('web-assets/s04/index.html') }}">
-                              <h3>SaaS Subscription</h3>
-                          <p>Best for SaaS Subscription</p>
-                      </a> 
-                  </li>
-                  <li class="single-item">
-                      <a href="{{ url('web-assets/s05/index.html') }}">
-                          <h3>Digital Service</h3>
-                          <p>Best for Digital Services</p>
-                      </a>
-                  </li>
-                  <li class="single-item">
-                      <a href="{{ url('web-assets/s06/index.html') }}">
-                          <h3>Online Course</h3>
-                          <p>Best for Online Course</p>
-                      </a>
-                  </li>
-                  <li class="single-item">
-                      <a href="{{ url('web-assets/s07/index.html') }}">
-                          <h3>Software</h3>
-                          <p>Best for Software & Application</p>
-                      </a>
-                  </li>
-                  <li class="single-item">
-                      <a href="{{ url('web-assets/s08/index.html') }}">
-                          <h3>Mobile App 2.0</h3>
-                          <p>Best for Mobile Application</p>
-                      </a>
-                  </li>
-                  </ul>
+                <li class="menu-item has-dropdown">
+                  <a href="#features">App</a>
                 </li>
-                <li><a href="#">Pages</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li class="menu-item "><a href="#features">{{ __('web.groups') }}</a></li>
+
+                <li class="menu-item"><a href="{{ route('login') }}"> {{ __('web.home_access') }}</a></li>
               </ul>
+              <div class="header-btns justify-content-end">
+                  <a href="#descargar" class="btn btn--primary btn--medium">{{ __('web.download') }}</a>
+              </div>
             </nav>
             <!-- mobile menu navigation end -->
           </div>
           <!-- mobile menu end -->
-
-          <!-- Header buttons start -->
-          <div class="header-btns offcanvas">
-            <div class="header-btns justify-content-end">
-              <a href="#" class="btn btn--primary btn--medium">Download Now</a>
-            </div>
-          </div>
-          <!-- Header buttons end -->
         </div>
       </aside>
       <!--Off Canvas Navigation End-->
@@ -172,7 +118,7 @@
             <div class="col-md-8 col-lg-7 col-xl-6  pb-lg--90 pb-xl--0 order-2 order-md-1">
               <div class="hero-content">
                 <h1 class="title mb--30">
-                  La forma inteligente de ahorrar dinero.
+                  {{ __('web.the_smart_way_of_saving_money') }}
                 </h1>
                 <p>
                   Controla tu dinero al 100% <br>

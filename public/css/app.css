@@ -1,4 +1,5 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Nunito);
+/* @charset "UTF-8"; */
 
 /*!
  * Bootstrap v4.5.0 (https://getbootstrap.com/)
@@ -4562,6 +4563,9 @@ input[type=button].btn-block {
   font-size: 1.125rem;
   line-height: inherit;
   white-space: nowrap;
+}
+.navbar-brand img {
+  height: 2.5rem;
 }
 
 .navbar-brand:hover,

@@ -16,11 +16,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('login', 'Api\AuthController@login');
 Route::post('register', 'Api\AuthController@register');
-Route::post('/password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail');
+Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail');
 
 Route::middleware(['auth:sanctum'])->group(function () { 
-     Route::get('users', function ()
-     {
-         return auth()->user();
+     Route::get('users', function () {
+        return auth()->user();
      });
+     Route::get('get-main-data', 'Api\HomeController@index');
+     Route::post('expenses/store', 'Api\ExpenseController@store');
+     Route::post('incomes/store', 'Api\IncomeController@store');
 });

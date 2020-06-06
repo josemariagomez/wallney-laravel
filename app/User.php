@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -38,4 +39,36 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    //Expenses
+    public function expenses()
+    {
+        return $this->hasMany('App\Expense');
+    }
+
+    public function monthExpenses()
+    {
+        return number_format($this->expenses()->whereMonth('date', Carbon::now()->format('m'))->whereYear('date', Carbon::now()->format('Y'))->sum('amount') / 100, 2);
+    }
+
+    public function lastMonthExpense()
+    {
+        return $this->expenses()->whereMonth('date', Carbon::now()->format('m'))->whereYear('date', Carbon::now()->format('Y'))->latest('date')->first();
+    }
+
+    //Incomes
+    public function incomes()
+    {
+        return $this->hasMany('App\Income');
+    }
+
+    public function monthIncomes()
+    {
+        return number_format($this->incomes()->whereMonth('date', Carbon::now()->format('m'))->whereYear('date', Carbon::now()->format('Y'))->sum('amount') / 100, 2);
+    }
+
+    public function lastMonthIncome()
+    {
+        return $this->incomes()->whereMonth('date', Carbon::now()->format('m'))->whereYear('date', Carbon::now()->format('Y'))->latest('date')->first();
+    }
 }

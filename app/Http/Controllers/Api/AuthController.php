@@ -4,21 +4,20 @@ namespace App\Http\Controllers\Api;
 
 use App\User;
 use Illuminate\Http\Request;
+use App\Http\Requests\LoginRequest;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\AuthResource;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\RegisterRequest;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
-    public function login(Request $request)
+    public function login(LoginRequest $request)
     {
-        try {
-            $request->validate([
-                'email' => 'required',
-                'password' => 'required'
-            ]);
-
+        try {            
             $username = $request->get('email');
             $password = $request->get('password');
             
@@ -40,6 +39,7 @@ class AuthController extends Controller
                 'status_code' => 200,
                 'access_token' => $tokenResult,
                 'token_type' => 'Bearer',
+                'user' => $user
             ]);
         } catch (Exception $error) {
             return response()->json([
@@ -50,23 +50,14 @@ class AuthController extends Controller
         }
     }
 
-    public function register(Request $request) 
-    { 
-        $validator = Validator::make($request->all(), [ 
-            'name' => 'required',
-            'username' => 'required|unique:users',
-            'email' => 'required|email|unique:users', 
-            'password' => 'required', 
-            'password_confirmation' => 'required|same:password', 
-        ]);
-        if ($validator->fails()) { 
-            return response()->json(['error'=>$validator->errors()], 401);            
-        }
-        $input = $validator->validated();
+    public function register(RegisterRequest $request) 
+    {         
+        $input = $request->validated();
         $input['password'] = bcrypt($input['password']); 
         $user = User::create($input);
         $tokenResult = $user->createToken('authToken')->plainTextToken;
 
+        return (new AuthResource($user))->response()->setStatusCode(200);
         return response()->json([
             'status_code' => 200,
             'access_token' => $tokenResult,

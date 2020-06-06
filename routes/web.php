@@ -13,10 +13,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('web.home');
-});
-
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/home', 'HomeController@index')->name('home');
+});
+
+Route::group(['prefix' => '{locale?}', 'where' => ['locale' => '[a-zA-Z]{2}'], 'middleware' => 'setlocale'], function () {
+    Route::get('/', function () {
+        return view('web.home');
+    });
+});
+
+// Main Languaje
+Route::group(['middleware' => 'setlocale'], function () {
+
+});
+
+Route::group(['prefix' => 'en', 'middleware' => 'setlocale'], function () {
+        
+});
