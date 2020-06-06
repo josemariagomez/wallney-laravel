@@ -28,7 +28,7 @@ class StoreExpenseRequest extends FormRequest
             'title' => 'required|max:60',
             'description' => 'required|max:255',
             'amount' => 'required|integer',
-            'date' => 'required|date|date_format:d-m-Y|before:tomorrow',
+            'date' => 'required|date|before:tomorrow',
         ];
     }
 }
