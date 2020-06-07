@@ -8,6 +8,12 @@ use App\Http\Requests\StoreExpenseRequest;
 
 class ExpenseController extends Controller
 {
+    public function index()
+    {
+        $user = auth()->user();
+        return $user->expenses()->orderByDesc('date')->paginate(2);
+    }
+
     public function store(StoreExpenseRequest $request)
     {
         $user = auth()->user();
