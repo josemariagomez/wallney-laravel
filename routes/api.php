@@ -27,6 +27,6 @@ Route::middleware(['auth:sanctum'])->group(function () {
      Route::get('expenses', 'Api\ExpenseController@index');
      Route::post('expenses/store', 'Api\ExpenseController@store');
 
-     Route::get('incomes', 'Api\incomeController@index');
+     Route::get('incomes', 'Api\IncomeController@index');
      Route::post('incomes/store', 'Api\IncomeController@store');
 });
