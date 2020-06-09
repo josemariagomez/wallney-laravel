@@ -13,8 +13,8 @@ class HomeController extends Controller
         $user = auth()->user();
         $expenses = $user->monthExpenses();
         $incomes = $user->monthIncomes();
-        $saved = floatval($incomes) - floatval($expenses);
-        dd(floatval($incomes));
+        $saved = ((float)$incomes) - ((float)$expenses);
+        dd($saved);
         $main_card = [
             'ahorro' => number_format($saved, 2),
             'meta' => 200,
