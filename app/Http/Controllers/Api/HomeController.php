@@ -14,6 +14,7 @@ class HomeController extends Controller
         $expenses = $user->monthExpenses();
         $incomes = $user->monthIncomes();
         $saved = $incomes - $expenses;
+        dd($saved);
         $main_card = [
             'ahorro' => number_format($saved, 2),
             'meta' => 200,
