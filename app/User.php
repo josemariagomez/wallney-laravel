@@ -48,7 +48,7 @@ class User extends Authenticatable
 
     public function monthExpenses()
     {
-        return number_format($this->expenses()->whereMonth('date', Carbon::now()->format('m'))->whereYear('date', Carbon::now()->format('Y'))->sum('amount') / 100, 2);
+        return ($this->expenses()->whereMonth('date', Carbon::now()->format('m'))->whereYear('date', Carbon::now()->format('Y'))->sum('amount') / 100);
     }
 
     public function lastMonthExpense()
@@ -64,7 +64,7 @@ class User extends Authenticatable
 
     public function monthIncomes()
     {
-        return number_format($this->incomes()->whereMonth('date', Carbon::now()->format('m'))->whereYear('date', Carbon::now()->format('Y'))->sum('amount') / 100, 2);
+        return ($this->incomes()->whereMonth('date', Carbon::now()->format('m'))->whereYear('date', Carbon::now()->format('Y'))->sum('amount') / 100);
     }
 
     public function lastMonthIncome()
