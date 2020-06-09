@@ -13,7 +13,7 @@ class HomeController extends Controller
         $user = auth()->user();
         $expenses = $user->monthExpenses();
         $incomes = $user->monthIncomes();
-        $saved = $incomes - $expenses;
+        $saved = intval($incomes) - intval($expenses);
         dd($saved);
         $main_card = [
             'ahorro' => number_format($saved, 2),
