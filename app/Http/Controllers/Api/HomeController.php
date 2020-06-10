@@ -52,7 +52,7 @@ class HomeController extends Controller
             'meta' => optional($user->goal)->amount / 100,
             'gastos' => $user->expenses()->sum('amount'),
             'ingresos' => $user->incomes()->sum('amount'),
-            'ahorros' => ($user->expenses()->sum('amount') - $user->incomes()->sum('amount')),
+            'ahorros' => ($user->incomes()->sum('amount') - $user->expenses()->sum('amount')),
         ];
 
         return $data;
