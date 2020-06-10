@@ -77,4 +77,18 @@ class User extends Authenticatable
     {
         return $this->incomes()->whereMonth('date', now()->format('m'))->whereYear('date', now()->format('Y'))->latest('date')->first();
     }
+
+    //Goals
+    public function goal()
+    {
+        return $this->morphOne('App\Goal', 'goalable');
+    }
+
+    public function goalParsed()
+    {
+        return $this->goal()->select('id','amount')->get()->map(function($item) {
+            $item->amount = $item->amount / 100;
+            return $item;
+        })->first();
+    }
 }
