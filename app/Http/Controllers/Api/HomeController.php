@@ -16,7 +16,7 @@ class HomeController extends Controller
         $saved = $incomes - $expenses;
         $main_card = [
             'ahorro' => number_format($saved, 2),
-            'meta' => number_format($user->goalParsed()->amount, 2),
+            'meta' => number_format(optional($user->goalParsed())->amount, 2),
         ];
         $expenses_card = [
             'dinero' => optional($user->lastMonthExpense())->amount ? number_format(optional($user->lastMonthExpense())->amount/ 100, 2) : 0,
