@@ -20,6 +20,9 @@ class GoalController extends Controller
         $request->validate([
             'amount' => 'required',
         ]);
+        if ($request->amount < 0) {
+            $request->amount = 0;
+        }
         $user = auth()->user();
         $goal = $user->goal;
         if ($goal) {
