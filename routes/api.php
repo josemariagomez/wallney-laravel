@@ -23,6 +23,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
         return auth()->user();
      });
      Route::get('get-main-data', 'Api\HomeController@index');
+     Route::get('get-profile-data', 'Api\HomeController@profile');
 
      Route::get('expenses', 'Api\ExpenseController@index');
      Route::post('expenses/store', 'Api\ExpenseController@store');

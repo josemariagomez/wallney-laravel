@@ -44,4 +44,17 @@ class HomeController extends Controller
 
         return $data;
     }
+
+    public function profile()
+    {
+        $user = auth()->user();
+        $data = [
+            'meta' => $user->goal->amount / 100,
+            'gastos' => number_format($user->expenses()->sum('amount'), 2),
+            'ingresos' => number_format($user->incomes()->sum('amount'), 2),
+            'ahorros' => number_format(($user->expenses()->sum('amount') - $user->incomes()->sum('amount')), 2),
+        ];
+
+        return $data;
+    }
 }
