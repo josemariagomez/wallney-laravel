@@ -49,7 +49,7 @@ class HomeController extends Controller
     {
         $user = auth()->user();
         $data = [
-            'meta' => $user->goal->amount / 100,
+            'meta' => optional($user->goal)->amount / 100,
             'gastos' => $user->expenses()->sum('amount'),
             'ingresos' => $user->incomes()->sum('amount'),
             'ahorros' => ($user->expenses()->sum('amount') - $user->incomes()->sum('amount')),
