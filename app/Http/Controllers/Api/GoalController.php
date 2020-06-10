@@ -24,6 +24,7 @@ class GoalController extends Controller
         $goal = $user->goal;
         if ($goal) {
             $goal->amount = intval($request->amount);
+            $goal->save();
         } else {
             $new = new Goal();
             $new->goalable_type = 'App\User';
