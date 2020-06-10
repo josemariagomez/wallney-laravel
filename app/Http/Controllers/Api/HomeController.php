@@ -26,13 +26,20 @@ class HomeController extends Controller
             'dinero' => optional($user->lastMonthIncome())->amount ? number_format(optional($user->lastMonthIncome())->amount/ 100, 2) : 0,
             'mensaje' => optional($user->lastMonthIncome())->title ?? 'No hay ingresos este mes'
         ];
+        $last_month = number_format(($user->monthIncomes(now()->subMonth()) - $user->monthExpenses(now()->subMonth())), 2);
+
+        setlocale(LC_ALL, 'es_ES');
+        $month_name = substr(now()->formatLocalized('%B'), 0, 3);
+        $date = '1 '. substr(now()->formatLocalized('%B'), 0, 3).' - '.now()->day.' '.$month_name;
 
         $data = [
+            'fecha' => $date,
             'ingresos' => number_format($incomes, 2),
             'gastos' => number_format($expenses, 2),
             'main_card' => $main_card,
             'gastos_card' => $expenses_card,
             'ingreso_card' => $incomes_card,
+            'mes_pasado' => $last_month, 
         ];
 
         return $data;

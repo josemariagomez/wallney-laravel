@@ -46,14 +46,17 @@ class User extends Authenticatable
         return $this->hasMany('App\Expense');
     }
 
-    public function monthExpenses()
+    public function monthExpenses($date = null)
     {
-        return ($this->expenses()->whereMonth('date', Carbon::now()->format('m'))->whereYear('date', Carbon::now()->format('Y'))->sum('amount') / 100);
+        if ($date) {
+            return ($this->expenses()->whereMonth('date', Carbon::parse($date)->format('m'))->whereYear('date', Carbon::parse($date)->format('Y'))->sum('amount') / 100);
+        }
+        return ($this->expenses()->whereMonth('date', now()->format('m'))->whereYear('date', now()->format('Y'))->sum('amount') / 100);
     }
 
     public function lastMonthExpense()
     {
-        return $this->expenses()->whereMonth('date', Carbon::now()->format('m'))->whereYear('date', Carbon::now()->format('Y'))->latest('date')->first();
+        return $this->expenses()->whereMonth('date', now()->format('m'))->whereYear('date', now()->format('Y'))->latest('date')->first();
     }
 
     //Incomes
@@ -62,13 +65,16 @@ class User extends Authenticatable
         return $this->hasMany('App\Income');
     }
 
-    public function monthIncomes()
+    public function monthIncomes($date = null)
     {
-        return ($this->incomes()->whereMonth('date', Carbon::now()->format('m'))->whereYear('date', Carbon::now()->format('Y'))->sum('amount') / 100);
+        if ($date) {
+            return ($this->incomes()->whereMonth('date', Carbon::parse($date)->format('m'))->whereYear('date', Carbon::parse($date)->format('Y'))->sum('amount') / 100);
+        }
+        return ($this->incomes()->whereMonth('date', now()->format('m'))->whereYear('date', now()->format('Y'))->sum('amount') / 100);
     }
 
     public function lastMonthIncome()
     {
-        return $this->incomes()->whereMonth('date', Carbon::now()->format('m'))->whereYear('date', Carbon::now()->format('Y'))->latest('date')->first();
+        return $this->incomes()->whereMonth('date', now()->format('m'))->whereYear('date', now()->format('Y'))->latest('date')->first();
     }
 }
