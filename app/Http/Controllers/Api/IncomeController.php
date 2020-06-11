@@ -35,4 +35,17 @@ class IncomeController extends Controller
         $income->update($request->validated());
         return response()->json('Ingreso editado correctamente', 200);
     }
+
+    public function destroy($id)
+    {
+        $user = auth()->user();
+        $income = Income::find($id);
+
+        if (!$user or !$income or ($income->user_id != $user->id)) {
+            return response()->json('Fallo al borrar', 400);
+        }
+
+        $income->delete();
+        return response()->json('Ingreso eliminado correctamente', 200);
+    }
 }

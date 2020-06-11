@@ -12,7 +12,7 @@ class ExpenseController extends Controller
     public function index()
     {
         $user = auth()->user();
-        return $user->expenses()->orderByDesc('date')->paginate(2);
+        return $user->expenses()->orderByDesc('date')->paginate(10);
     }
 
     public function store(StoreExpenseRequest $request)
@@ -33,5 +33,18 @@ class ExpenseController extends Controller
 
         $expense->update($request->validated());
         return response()->json('Ingreso editado correctamente', 200);
+    }
+
+    public function destroy($id)
+    {
+        $user = auth()->user();
+        $expense = Expense::find($id);
+
+        if (!$user or !$expense or ($expense->user_id != $user->id)) {
+            return response()->json('Fallo al borrar', 400);
+        }
+
+        $expense->delete();
+        return response()->json('Ingreso eliminado correctamente', 200);
     }
 }

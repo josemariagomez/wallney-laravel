@@ -28,10 +28,12 @@ Route::middleware(['auth:sanctum'])->group(function () {
      Route::get('expenses', 'Api\ExpenseController@index');
      Route::post('expenses/store', 'Api\ExpenseController@store');
      Route::post('expenses/{id}/update', 'Api\ExpenseController@update');
+     Route::post('expenses/{id}/destroy', 'Api\ExpenseController@destroy');
 
      Route::get('incomes', 'Api\IncomeController@index');
      Route::post('incomes/store', 'Api\IncomeController@store');
      Route::post('incomes/{id}/update', 'Api\IncomeController@update');
+     Route::post('incomes/{id}/destroy', 'Api\IncomeController@destroy');
 
      Route::get('goal', 'Api\GoalController@getGoal');
      Route::post('goal', 'Api\GoalController@credit');
