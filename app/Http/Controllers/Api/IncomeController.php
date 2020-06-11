@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Income;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -20,5 +21,18 @@ class IncomeController extends Controller
         $user = auth()->user();
         $expense = $user->incomes()->create($request->validated());
         return response()->json('Ingreso creado correctamente', 200);
+    }
+
+    public function update(StoreExpenseRequest $request, $id)
+    {
+        $user = auth()->user();
+        $income = Income::find($id);
+
+        if (!$user or !$income or ($income->user_id != $user->id)) {
+            return response()->json('Fallo al editar', 400);
+        }
+
+        $income->update($request->validated());
+        return response()->json('Ingreso editado correctamente', 200);
     }
 }
