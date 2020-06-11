@@ -17,7 +17,19 @@ class ExpenseController extends Controller
             return $item;
         });
         $list = my_paginate($all, 10, null, request()->getPathInfo());
-        return $list;
+
+        setlocale(LC_ALL, 'es_ES');
+        $month_name = substr(now()->formatLocalized('%B'), 0, 3);
+        $date = '1 '. substr(now()->formatLocalized('%B'), 0, 3).' - '.now()->day.' '.$month_name;
+
+        $data = [
+            'fecha' => $date,
+            'este_mes' => $user->monthExpenses(),
+            'mes_pasado' => $user->monthExpenses(now()->subMonth()),
+            'diferencia' => $user->lasTwoMonthExpenses(),
+            'data' => $list,
+        ];
+        return $data;
     }
 
     public function store(StoreExpenseRequest $request)

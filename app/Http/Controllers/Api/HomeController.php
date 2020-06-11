@@ -57,4 +57,17 @@ class HomeController extends Controller
 
         return $data;
     }
+
+    public function getMonths()
+    {
+        $user = auth()->user();
+        $data = [
+            'meta' => optional($user->goal)->amount / 100,
+            'gastos' => $user->expenses()->sum('amount') / 100,
+            'ingresos' => $user->incomes()->sum('amount') / 100,
+            'ahorros' => ($user->incomes()->sum('amount') - $user->expenses()->sum('amount')) / 100,
+        ];
+
+        return $data;
+    }
 }

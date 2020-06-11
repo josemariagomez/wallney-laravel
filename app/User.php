@@ -59,6 +59,12 @@ class User extends Authenticatable
         return $this->expenses()->whereMonth('date', now()->format('m'))->whereYear('date', now()->format('Y'))->latest('date')->first();
     }
 
+    public function lasTwoMonthExpenses()
+    {
+        $dif = ($this->expenses()->whereMonth('date', now()->format('m'))->whereYear('date', now()->format('Y'))->sum('amount')) - ($this->expenses()->whereMonth('date', now()->subMonth()->format('m'))->whereYear('date', now()->subMonth()->format('Y'))->sum('amount'));
+        return $dif / 100;
+    }
+
     //Incomes
     public function incomes()
     {
@@ -76,6 +82,12 @@ class User extends Authenticatable
     public function lastMonthIncome()
     {
         return $this->incomes()->whereMonth('date', now()->format('m'))->whereYear('date', now()->format('Y'))->latest('date')->first();
+    }
+
+    public function lasTwoMonthIncomes()
+    {
+        $dif = ($this->incomes()->whereMonth('date', now()->format('m'))->whereYear('date', now()->format('Y'))->sum('amount')) - ($this->incomes()->whereMonth('date', now()->subMonth()->format('m'))->whereYear('date', now()->subMonth()->format('Y'))->sum('amount'));
+        return $dif / 100;
     }
 
     //Goals
