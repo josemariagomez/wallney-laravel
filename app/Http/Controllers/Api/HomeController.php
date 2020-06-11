@@ -15,18 +15,18 @@ class HomeController extends Controller
         $incomes = $user->monthIncomes();
         $saved = $incomes - $expenses;
         $main_card = [
-            'ahorro' => number_format($saved, 2),
-            'meta' => number_format(optional($user->goalParsed())->amount, 2),
+            'ahorro' => $saved,
+            'meta' => optional($user->goalParsed())->amount,
         ];
         $expenses_card = [
-            'dinero' => optional($user->lastMonthExpense())->amount ? number_format(optional($user->lastMonthExpense())->amount/ 100, 2) : 0,
+            'dinero' => optional($user->lastMonthExpense())->amount ? optional($user->lastMonthExpense())->amount/ 100 : 0,
             'mensaje' => optional($user->lastMonthExpense())->title ?? 'No hay gastos este mes'
         ];
         $incomes_card = [
-            'dinero' => optional($user->lastMonthIncome())->amount ? number_format(optional($user->lastMonthIncome())->amount/ 100, 2) : 0,
+            'dinero' => optional($user->lastMonthIncome())->amount ? optional($user->lastMonthIncome())->amount/ 100 : 0,
             'mensaje' => optional($user->lastMonthIncome())->title ?? 'No hay ingresos este mes'
         ];
-        $last_month = number_format(($user->monthIncomes(now()->subMonth()) - $user->monthExpenses(now()->subMonth())), 2);
+        $last_month = ($user->monthIncomes(now()->subMonth()) - $user->monthExpenses(now()->subMonth()));
 
         setlocale(LC_ALL, 'es_ES');
         $month_name = substr(now()->formatLocalized('%B'), 0, 3);
@@ -34,8 +34,8 @@ class HomeController extends Controller
 
         $data = [
             'fecha' => $date,
-            'ingresos' => number_format($incomes, 2),
-            'gastos' => number_format($expenses, 2),
+            'ingresos' => $incomes,
+            'gastos' => $expenses,
             'main_card' => $main_card,
             'gastos_card' => $expenses_card,
             'ingreso_card' => $incomes_card,
@@ -50,9 +50,9 @@ class HomeController extends Controller
         $user = auth()->user();
         $data = [
             'meta' => optional($user->goal)->amount / 100,
-            'gastos' => $user->expenses()->sum('amount'),
-            'ingresos' => $user->incomes()->sum('amount'),
-            'ahorros' => ($user->incomes()->sum('amount') - $user->expenses()->sum('amount')),
+            'gastos' => $user->expenses()->sum('amount') / 100,
+            'ingresos' => $user->incomes()->sum('amount') / 100,
+            'ahorros' => ($user->incomes()->sum('amount') - $user->expenses()->sum('amount')) / 100,
         ];
 
         return $data;

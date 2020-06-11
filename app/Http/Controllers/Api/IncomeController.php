@@ -13,7 +13,12 @@ class IncomeController extends Controller
     public function index()
     {
         $user = auth()->user();
-        return $user->incomes()->orderByDesc('date')->paginate(10);
+        $all = $user->incomes()->orderByDesc('date')->get()->map(function ($item) {
+            $item->amount = $item->amount / 100;
+            return $item;
+        });
+        $list = my_paginate($all, 10, null, request()->getPathInfo());
+        return $list;
     }
 
     public function store(StoreExpenseRequest $request)
