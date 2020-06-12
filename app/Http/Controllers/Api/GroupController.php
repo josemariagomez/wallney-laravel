@@ -21,6 +21,12 @@ class GroupController extends Controller
 
     public function store()
     {
+        request()->validate([
+            'name' => 'required',
+            'target' => 'required',
+            'amount' => 'required',
+            'percent' => 'required',
+        ]);
         $user = auth()->user();
         $req = request();
 
@@ -98,12 +104,23 @@ class GroupController extends Controller
 
     public function update($id)
     {
+        request()->validate([
+            'name' => 'required',
+            'target' => 'required',
+            'amount' => 'required',
+        ]);
         $req = request();
         $user = auth()->user();
         $group = Group::where('id', $id)->first();
         if (!$group) return response()->json('El grupo no existe', 400);
+        if ($user->id != $group->admin_id) {
+            return response()->json('Solo puede editar un grupo el administrador', 400);
+        }
 
-        $group->delete();
+        $group->name = $request->name;
+        $group->target = $request->target;
+        $group->amount = $request->amount;
+        $group->save();
         return response()->json('Eliminado correctamente', 200);
     }
 
@@ -113,6 +130,9 @@ class GroupController extends Controller
         $group = Group::where('id', $id)->first();
         if (!$group) return response()->json('El grupo no existe', 400);
 
+        if ($user->id != $group->admin_id) {
+            return response()->json('Solo puede borrar un grupo el administrador', 400);
+        }
         $group->delete();
         return response()->json('Eliminado correctamente', 200);
     }
