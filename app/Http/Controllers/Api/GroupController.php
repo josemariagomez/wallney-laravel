@@ -43,7 +43,7 @@ class GroupController extends Controller
             'admin_id' => $user->id,
             'name' => $req->name,
             'target' => $req->target,
-            'amount' => $req->money,
+            'amount' => $req->amount,
             'percent' => $percent,
             'uuid' => $uuid
         ]);
@@ -92,6 +92,7 @@ class GroupController extends Controller
             return $parsed;
         });
 
+        $group->amount = $group->amount / 100;
         $data = [
             'admin' => ($user->id == $group->admin_id) ? true : false,
             'group' => $group,

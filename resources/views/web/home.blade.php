@@ -177,7 +177,7 @@
                   <div class="content-widget-wrapper">
                     <div class="content-widget">
                       <div class="widget-icon">
-                        <i class="icon icon-layers-3"></i>
+                        <i class="fas fa-shopping-basket"></i>
                       </div>
 
                       <div class="content">
@@ -190,7 +190,7 @@
 
                     <div class="content-widget">
                       <div class="widget-icon">
-                        <i class="icon icon-layers-3"></i>
+                        <i class="fas fa-coins"></i>
                       </div>
 
                       <div class="content">
