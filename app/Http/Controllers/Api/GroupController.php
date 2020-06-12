@@ -58,16 +58,16 @@ class GroupController extends Controller
         $group = Group::where('uuid', $uuid)->first();
         if (!$group) return response()->json('El grupo no existe', 400);
 
+        $total_percent = $user->groups()->sum('percent');
+        if (($group->percent + $total_percent) > 100) {
+            return response()->json('Ya has llegado al límite de tus ahorros', 400);
+        }
+        
         $groups_id = $user->groups()->pluck('groups.id')->toArray();
         if (!in_array($group->id, $groups_id)) {
             $user->groups()->attach($group->id);
         } else {
             response()->json('Añadido al grupo correctamente', 200);
-        }
-
-        $total_percent = $user->groups()->sum('percent');
-        if (($group->percent + $total_percent) > 100) {
-            return response()->json('Ya has llegado al límite de tus ahorros', 400);
         }
 
         return response()->json('Añadido al grupo correctamente', 200);
