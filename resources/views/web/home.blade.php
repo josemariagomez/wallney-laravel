@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>{{ __('web.home_seo_title') }}</title>
+    <title>Wallney | Ahorro Inteligente </title>
     <!-- Plugins CSS -->
     <link
       rel="stylesheet"
@@ -42,12 +42,12 @@
                   <li class="menu-item has-dropdown">
                     <a href="#features">App</a>
                   </li>
-                  <li class="menu-item "><a href="#features">{{ __('web.groups') }}</a></li>
+                  <li class="menu-item "><a href="#features">Grupos</a></li>
 
-                  <li class="menu-item"><a href="{{ route('login') }}"> {{ __('web.home_access') }}</a></li>
+                  <li class="menu-item"><a href="{{ route('login') }}">Iniciar sesión</a></li>
                 </ul>
                 <div class="header-btns justify-content-end">
-                    <a href="#descargar" class="btn btn--primary btn--medium">{{ __('web.download') }}</a>
+                    <a href="#descargar" class="btn btn--primary btn--medium">Descargar</a>
                 </div>
             </div>
 							
@@ -95,12 +95,12 @@
                 <li class="menu-item has-dropdown">
                   <a href="#features">App</a>
                 </li>
-                <li class="menu-item "><a href="#features">{{ __('web.groups') }}</a></li>
+                <li class="menu-item "><a href="#features">Grupos</a></li>
 
-                <li class="menu-item"><a href="{{ route('login') }}"> {{ __('web.home_access') }}</a></li>
+                <li class="menu-item"><a href="{{ route('login') }}">Iniciar sesión</a></li>
               </ul>
               <div class="header-btns justify-content-end">
-                  <a href="#descargar" class="btn btn--primary btn--medium">{{ __('web.download') }}</a>
+                  <a href="#descargar" class="btn btn--primary btn--medium">Descargar</a>
               </div>
             </nav>
             <!-- mobile menu navigation end -->
@@ -118,7 +118,7 @@
             <div class="col-md-8 col-lg-7 col-xl-6  pb-lg--90 pb-xl--0 order-2 order-md-1">
               <div class="hero-content">
                 <h1 class="title mb--30">
-                  {{ __('web.the_smart_way_of_saving_money') }}
+                  La forma inteligente de ahorrar dinero
                 </h1>
                 <p>
                   Controla tu dinero al 100% <br>

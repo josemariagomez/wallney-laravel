@@ -23,7 +23,6 @@ class GroupController extends Controller
     {
         request()->validate([
             'name' => 'required',
-            'target' => 'required',
             'amount' => 'required',
             'percent' => 'required',
         ]);
@@ -106,7 +105,6 @@ class GroupController extends Controller
     {
         request()->validate([
             'name' => 'required',
-            'target' => 'required',
             'amount' => 'required',
         ]);
         $req = request();
