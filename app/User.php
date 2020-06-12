@@ -103,4 +103,10 @@ class User extends Authenticatable
             return $item;
         })->first();
     }
+
+    //Groups
+    public function groups()
+    {
+        return $this->belongsToMany('App\Group')->withTimestamps();
+    }
 }
