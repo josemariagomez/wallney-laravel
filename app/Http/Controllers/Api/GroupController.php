@@ -97,7 +97,7 @@ class GroupController extends Controller
         $data = [
             'admin' => ($user->id == $group->admin_id) ? true : false,
             'group' => $group,
-            'users' => collect($users)->sortByDesc('money')
+            'users' => $users
         ];
 
         return response()->json($data, 200);
