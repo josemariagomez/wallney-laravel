@@ -15,7 +15,7 @@ class HomeController extends Controller
         $incomes = $user->monthIncomes();
         $saved = $incomes - $expenses;
         $main_card = [
-            'ahorro' => $saved,
+            'ahorro' => round($saved, 2),
             'meta' => optional($user->goalParsed())->amount,
         ];
         $expenses_card = [
