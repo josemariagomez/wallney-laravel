@@ -93,11 +93,13 @@ class GroupController extends Controller
             return $parsed;
         });
 
+        $users = collect($user)->sortBy('money');
+
         $group->amount = $group->amount / 100;
         $data = [
             'admin' => ($user->id == $group->admin_id) ? true : false,
             'group' => $group,
-            'users' => collect($users)->sortByDesc('money')->toArray()
+            'users' => $users
         ];
 
         return response()->json($data, 200);
