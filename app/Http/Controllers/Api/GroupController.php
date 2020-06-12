@@ -15,6 +15,7 @@ class GroupController extends Controller
         $user = auth()->user();
 
         return $user->groups()->get()->map(function($item) use ($user) {
+            $item->amount = $item->amount / 100;
             return $item->withSaved($user->id);
         });
     }

@@ -43,8 +43,6 @@
                     <a href="#features">App</a>
                   </li>
                   <li class="menu-item "><a href="#features">Grupos</a></li>
-
-                  <li class="menu-item"><a href="{{ route('login') }}">Iniciar sesión</a></li>
                 </ul>
                 <div class="header-btns justify-content-end">
                     <a href="#descargar" class="btn btn--primary btn--medium">Descargar</a>
@@ -96,8 +94,6 @@
                   <a href="#features">App</a>
                 </li>
                 <li class="menu-item "><a href="#features">Grupos</a></li>
-
-                <li class="menu-item"><a href="{{ route('login') }}">Iniciar sesión</a></li>
               </ul>
               <div class="header-btns justify-content-end">
                   <a href="#descargar" class="btn btn--primary btn--medium">Descargar</a>
@@ -275,16 +271,14 @@
 
               <div
                 class="col-sm-10 col-md-7 col-lg-6 offset-md-1 col-xl-5 order-2 order-md-1">
-                <div class="badge" data-aos="fade-up"  data-aos-duration="1000" data-aos-delay="300" data-aos-once="true">
-                  <i class="fas fa-bolt"></i>
-                  <span>new feature</span>
+                <div class="badge" style="background-color: #f85f5f" data-aos="fade-up"  data-aos-duration="1000" data-aos-delay="300" data-aos-once="true">
+                  <i class="fas fa-fire"></i>
+                  <span>top</span>
                 </div>
                 <div class="content-right-content" data-aos="fade-up"  data-aos-duration="1000" data-aos-delay="500" data-aos-once="true">
-                  <h2 class="title h2">Explore the things you never saw.</h2>
+                  <h2 class="title h2">Ahorra con tus amigxs.</h2>
                   <p>
-                    Create custom landing pages with Berlin that convert more
-                    visitors than any website. With lots of unique blocks, you
-                    can easily build a page without coding.
+                    Crea o únete a grupos con quién quieras y ahorra en compañía. Si tenéis algo que queréis hacer juntxs, asignad una meta y un porcentaje que se destinará a ese grupo desde la fecha en que te unas.
                   </p>
                 </div>
               </div>
