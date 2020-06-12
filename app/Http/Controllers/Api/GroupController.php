@@ -83,7 +83,7 @@ class GroupController extends Controller
         $to = now();
         $percent = $group->percent;
 
-        $users = $group->users()->get()->sortByDesc('money')->map(function($user) use ($from, $to, $percent){
+        $users = $group->users()->get()->map(function($user) use ($from, $to, $percent){
             $parsed = [];
             $incomes = $user->incomes()->whereBetween('date', [$from, $to])->sum('amount');
             $expenses = $user->expenses()->whereBetween('date', [$from, $to])->sum('amount');
@@ -97,7 +97,7 @@ class GroupController extends Controller
         $data = [
             'admin' => ($user->id == $group->admin_id) ? true : false,
             'group' => $group,
-            'users' => $users
+            'users' => $users->sortByDesc('money')
         ];
 
         return response()->json($data, 200);
