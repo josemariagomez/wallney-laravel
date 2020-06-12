@@ -83,7 +83,7 @@ class GroupController extends Controller
         $to = now();
         $percent = $group->percent;
 
-        $users = $group->users()->get()->map(function($user) use ($from, $to, $percent){
+        $users = $group->users()->get()->sortByDesc('money')->map(function($user) use ($from, $to, $percent){
             $parsed = [];
             $incomes = $user->incomes()->whereBetween('date', [$from, $to])->sum('amount');
             $expenses = $user->expenses()->whereBetween('date', [$from, $to])->sum('amount');
