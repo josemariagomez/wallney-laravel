@@ -93,7 +93,7 @@ class GroupController extends Controller
             return $parsed;
         });
 
-        $users = collect($user)->sortBy('money');
+        $users = $user->sortBy('money');
 
         $group->amount = $group->amount / 100;
         $data = [
