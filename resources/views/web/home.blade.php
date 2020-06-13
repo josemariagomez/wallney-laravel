@@ -265,7 +265,7 @@
                 class="col-sm-5 col-md-4 col-lg-5 col-xl-5 offset-xl-1 col-sm-7 col-7 order-1 order-md-2"
               >
                 <div class="content-image-01" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300" data-aos-once="true">
-                  <img src="{{ url('web-assets/image/iPhone.png') }}" alt="" />
+                  <img src="{{ url('web-assets/image/iPhone-group.png') }}" alt="" />
                 </div>
               </div>
 
