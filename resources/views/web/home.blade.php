@@ -40,7 +40,7 @@
               <div class="main-navigation ">
                 <ul class="main-menu">
                   <li class="menu-item has-dropdown">
-                    <a href="#features">App</a>
+                    <a href="#app">App</a>
                   </li>
                   <li class="menu-item "><a href="#features">Grupos</a></li>
                 </ul>
@@ -91,7 +91,7 @@
             <nav class="off-canvas-nav">
               <ul class="mobile-menu">
                 <li class="menu-item has-dropdown">
-                  <a href="#features">App</a>
+                  <a href="#app">App</a>
                 </li>
                 <li class="menu-item "><a href="#features">Grupos</a></li>
               </ul>
@@ -204,7 +204,7 @@
         </div>
       </section>
 
-      <section class="feature-section section-padding-top">
+      {{-- <section class="feature-section section-padding-top">
         <div class="container">
           <div class="row space-dt--20">
             <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 mt--20" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true" data-aos-delay="100">
@@ -254,10 +254,10 @@
           </div>
           <div class="section-divider section-padding-top"></div>
         </div>
-      </section>
+      </section> --}}
 
       <!-- Content Section 01 -->
-      <section class="content-section section-padding-top">
+      <section id="features" class="content-section section-padding-top">
         <div class="container">
           <div class="content-wrapper">
             <div class="row justify-content-center">
@@ -289,7 +289,7 @@
       </section>
 
       <!-- Example Section -->
-      <section class="example-section position-relative section-padding">
+      <section id="app" class="example-section position-relative section-padding">
         <div class="row justify-content-center">
           <div class="col-xl-8 col-lg-10 col-md-10 col-sm-12 col-12">
             <div class="section-title">
@@ -319,13 +319,13 @@
 		
 								<div class="single-slide">
 									<div class="example-image">
-										<img src="{{ url('web-assets/image/BG (2).png') }}" alt="" />
+										<img src="{{ url('web-assets/image/BG(2).png') }}" alt="" />
 									</div>
 								</div>
 		
 								<div class="single-slide">
 									<div class="example-image">
-										<img src="{{ url('web-assets/image/BG (3).png') }}" alt="" />
+										<img src="{{ url('web-assets/image/BG(3).png') }}" alt="" />
 									</div>
 								</div>
 							</div>
@@ -347,7 +347,7 @@
 
             <h2 class="cta-title h2">Descárgala ahora</h2>
             <div class="cta-btns mb--30">
-              <a href="#" class="android btn btn--primary btn--large"
+              <a href="/download/wallney.apk" class="android btn btn--primary btn--large"
                 ><i class="fab fa-android"></i
                 ><span class="p2">Descarga para Andorid</span></a
               >
